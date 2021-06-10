@@ -1,6 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wuyiyit/homeScreen/homeScreen.dart';
+import 'package:wuyiyit/providers/mainProvider.dart';
 import 'package:wuyiyit/wrapper.dart';
 
 class ConnectToServer extends StatefulWidget {
@@ -53,8 +56,10 @@ class _ConnectToServerState extends State<ConnectToServer> {
     // ignore: close_sinks
     Socket socket = await Socket.connect('10.6.206.50', 4567);
     print("Done: ");
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (_) => Wrapper(socket: socket)));
+    Provider.of<MainProvider>(context, listen: false).addSocket(socket);
+    // Navigator.of(context)
+    //     .push(MaterialPageRoute(builder: (_) => Wrapper(socket: socket)));
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => HomeScreen()));
   }
 
   Widget addressTextFieldGenerator(
