@@ -51,7 +51,7 @@ class _ConnectToServerState extends State<ConnectToServer> {
     //Connect to the server
     print("Connecting...");
     // ignore: close_sinks
-    Socket socket = await Socket.connect('10.6.200.132', 4567);
+    Socket socket = await Socket.connect('10.6.206.50', 4567);
     print("Done: ");
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (_) => Wrapper(socket: socket)));

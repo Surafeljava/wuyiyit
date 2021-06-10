@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:wuyiyit/models/message.dart';
 
 class Wrapper extends StatefulWidget {
   final Socket socket;
@@ -91,6 +92,7 @@ class _WrapperState extends State<Wrapper> {
                         FocusScope.of(context).unfocus();
                         sendMessage(message: messageController.text);
                         messageController.text = "";
+                        // Message message = new Message(from: "A", to: "B", :);
                       }
                     },
                   ),
